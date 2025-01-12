@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodie - Find Movies Based on Your Mood</title>
+    <link rel="stylesheet" href="moodie.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="moodielogo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="moodielogo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="moodielogo/favicon-16x16.png">
+    <link rel="manifest" href="moodielogo/site.webmanifest">  
+</head>
+
+<body>
+    <div id="backgroundPoster"></div>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">MOODIE</a>
+            <ul>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="food/food.html">Food</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li id="profile-pic-container" style="display:none;">
+                    <img id="profile-pic" src="" alt="Profile Picture">
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="overlay">
+            <div id="videoPlayer">
+                <span id="closeButton">&times;</span>
+                <iframe id="trailerFrame" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Welcome to Moodie</h1>
+            <p>Tell me your mood, and I'll suggest some movies for you.</p>
+
+            <select name="Mood" id="mood" required>
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited">Excited</option>
+                <option value="romantic">Romantic</option>
+                <option value="aderanaline rush">Aderanaline Rush</option>
+                <option value="relax">Relax</option>
+                <option value="bored">Bored</option>
+                <option value="angry">Angry</option>
+                <option value="adventurous">Adventurous</option>
+                <option value="nostalgic">Nostalgic</option>
+                <option value="mystery">Mystery</option>
+                <option value="serious">Serious</option>
+                <!-- <option value="Drama">18+</option> -->
+            </select><br>
+
+            <label for="language">Select Language:</label>
+            <select id="language">
+                <option value="">Any</option>
+                <option value="hi">Hindi</option>
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="ko">Korean</option>
+                <option value="es">Spanish</option>
+                <option value="de">German</option>
+                <option value="zh">Chinese</option>
+                <option value="ja">Japanese</option>
+            </select>
+
+            <button id="submit">Get Suggestions</button>
+
+            <div id="suggestions" class="suggestions">
+                <!-- Movie suggestions will appear here -->
+            </div>
+        </div>
+    </main>
+
+    <div id="auth-popup" class="auth-popup">
+        <div class="auth-popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login or Signup</h2>
+            <form id="login-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="signup-link">Sign up</a></p>
+            </form>
+            <form id="signup-form" style="display:none;">
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit">Signup</button>
+                <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-storage.js"></script>
+    <script src="login.js" type="module"></script>  
+    <script src="moodie.js"></script>
+</body>
+
+</html>
+
