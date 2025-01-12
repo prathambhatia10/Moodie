@@ -1,0 +1,346 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 98%;
+    /* background: #ffffff; */
+    /* background: url(http://www.24hourmoviemarathon.com/wp-content/uploads/2014/11/imdb_top_250.jpg)  ; 
+  */
+  background: url('background3.png') no-repeat center center fixed;
+    background-size:cover;
+   
+}
+
+
+header {
+    width: 104.1%;
+    background-color:  rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+
+    
+}
+/* Popup container */
+.auth-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Popup content */
+.auth-popup-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Close button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form styling */
+.auth-popup input[type=email],
+.auth-popup input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.auth-popup button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.auth-popup button:hover {
+    opacity: 0.8;
+}
+
+
+.navbar {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 30px 20px;
+    color: #BB8FF5;
+  
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+}
+
+.navbar .logo {
+    margin-left: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #BB8FF5;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: #BB8FF5;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+    margin-top: 60px; /* To avoid overlap with the fixed navbar */
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+}
+
+h1 {
+    color: #BB8FF5;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #BB8FF5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    filter: drop-shadow(0 0 20px #bb8ff5);
+    background-color: #BB8FF5;
+    transform: scale(1.1);
+}
+
+.suggestions {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.suggestions img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.suggestions img:hover {
+    transform: scale(1.05);
+}
+
+.suggestions h3 {
+    margin-top: 20px;
+    color: #BB8FF5;
+}
+
+.suggestions p {
+    text-align: left;
+    margin: 5px 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+#videoPlayer {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    height: 80%;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+  /* Play button styling */
+  .movie-poster-container {
+    position: relative;
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-button::before {
+    content: '';
+    display: block;
+    width:0;
+    height: 0;
+    border-left: 15px solid white;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+        width: 103%;
+       
+        
+    }
+    .container {
+        padding: 10px;
+        align-items:center;
+    }
+    .logo{
+     text-align: center;
+     margin-bottom: 30px;
+    }
+    .navbar {
+        flex-direction: column;
+        padding: 5px ;
+        width: 100%;
+        align-items: center;
+      }
+      
+     
+}
+@media only screen and (max-width: 600px) {
+    .movie-poster-container img {
+        width: 100%; /* Adjust poster to full width */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover;
+    }
+
+    #suggestions div {
+        flex-direction: column; /* Stack details vertically */
+    }
+
+    #suggestions h3, #suggestions p {
+        text-align: left; /* Center text on small screens */
+    }
+}
+
+#backgroundPoster {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain; /* Ensure the entire image is visible */
+    background-repeat:repeat; /* Prevent the image from repeating */
+    background-position: left; /* Center the image */
+    z-index: -1; /* Ensure it is behind other content */
+    display: none; /* Initially hidden */
+}
